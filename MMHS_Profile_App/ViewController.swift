@@ -8,18 +8,35 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-                            
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    var imagePicker = UIImagePickerController()
+
+    @IBOutlet var profileImageView: UIImageView
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        //must include UINavigationControllerDelegate to this
+        imagePicker.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //Recognize tap on imageView and present photo library
+    @IBAction func onImageTapped(sender: AnyObject) {
+
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
 
+    //UIImagePickerController Delegate
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!)
+    {
+        picker .dismissViewControllerAnimated(true, completion: {
 
+            //Capture user's selected image from info[] dictionary
+            var selectedImage = info[UIImagePickerControllerOriginalImage] as UIImage
+            self.profileImageView.image = selectedImage
+            println("DISMISSED")
+            })
+    }
 }
 
