@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController {
 
     var imagePicker = UIImagePickerController()
 
@@ -17,30 +17,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //must include UINavigationControllerDelegate to this
-        imagePicker.delegate = self
-
         //set default profile pic
         profileImageView.image = UIImage(named: "stock_image")
 
-    }
-
-    //Recognize tap on imageView and present photo library
-    @IBAction func onImageTapped(sender: AnyObject) {
-
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
-
-    //UIImagePickerController Delegate
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!)
-    {
-        picker .dismissViewControllerAnimated(true, completion: {
-
-            //Capture user's selected image from info[] dictionary
-            var selectedImage = info[UIImagePickerControllerOriginalImage] as UIImage
-            self.profileImageView.image = selectedImage
-            println("DISMISSED")
-            })
     }
 }
 
