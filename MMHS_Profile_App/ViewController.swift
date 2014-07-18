@@ -23,9 +23,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //set default profile pic
         profileImageView.image = UIImage(named: "stock_image")
 
-        //give the profile pic a rounded frame
-        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
-        profileImageView.clipsToBounds = true
     }
 
     //Recognize tap on imageView and present photo library
