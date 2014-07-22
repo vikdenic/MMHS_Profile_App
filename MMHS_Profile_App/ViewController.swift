@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     var imagePicker = UIImagePickerController()
 
-    @IBOutlet var profileImageView: UIImageView
+    @IBOutlet var profileImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
