@@ -8,16 +8,21 @@
 
 import UIKit
 
+//ViewController for WebView
+
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var myWebView: UIWebView!
 
     override func viewDidLoad()
     {
-        var urlString = "http://www.google.com"
-        myWebView.loadHTMLString(urlString, baseURL: nil)
+        //Create URL and load it into webview via a request
+        var websiteURL = NSURL(string: "http://google.com")
+        var urlRequest = NSURLRequest(URL: websiteURL)
+        myWebView.loadRequest(urlRequest)
     }
 
+    //Dismiss the viewcontroller via back button
     @IBAction func onBackButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
