@@ -14,6 +14,11 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad()
     {
-        
+        var urlString = "http://www.google.com"
+        myWebView.loadHTMLString(urlString, baseURL: nil)
+    }
+
+    @IBAction func onBackButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
