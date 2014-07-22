@@ -12,7 +12,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     var imagePicker = UIImagePickerController()
 
-    @IBOutlet var profileImageView: UIImageView
+    @IBOutlet var profileImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             //Capture user's selected image from info[] dictionary
             var selectedImage = info[UIImagePickerControllerOriginalImage] as UIImage
             self.profileImageView.image = selectedImage
-            println("DISMISSED")
             })
     }
 }
